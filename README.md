@@ -21,7 +21,7 @@ If the `main.js` script element has the `defer` attribute set, `main.js` is
 executed, the first `<p>` element contains "main.js executed", and the second
 `<p>` element contains "userscript.js executed".
 
-If the `main.js` script element does _not_ have the `defer attribute`,
+If the `main.js` script element does _not_ have the `defer` attribute,
 `main.js` is not executed, the first `<p>` element is empty, and the second
 `<p>` element contains "userscript.js executed".
 
