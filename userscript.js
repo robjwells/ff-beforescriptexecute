@@ -1,4 +1,5 @@
 // ==UserScript==
+// ==UserScript==
 // @name        Localhost intercept script
 // @match       http://localhost*/
 // @version     1.0
@@ -14,7 +15,10 @@ new MutationObserver(async (mutations, observer) => {
         const src = node.src || '';
         if (src.match("main\.js")) {
           node.type = "text/plain";
-          console.log("Changed type of main.js.");
+          console.log("userscript.js executed");
+          addEventListener("load", () => {
+            document.querySelector("#userscript-target").textContent = "userscript.js executed";
+          })
         }
       }
     })

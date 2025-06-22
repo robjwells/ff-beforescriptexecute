@@ -8,17 +8,24 @@ Tested with:
 
 ## Setup
 
-The `index.html` file includes `main.js`, which attaches a click event listener
-on the button. When pressed, the event listener adds text to the empty `p` tag
-below the button.
+The `index.html` file includes `main.js`. It registers a load listener to add
+text to a `<p>` element.
 
 The `userscript.js` file attempts to prevent the execution of `main.js` by
-changing the `type` of the `script` element.
+changing the `type` of the `script` element. It also registers a load listener to
+add text to a (different) `<p>` element.
 
 ## Firefox behaviour
 
-`main.js` is executed and an event listener is attached to the button.
+If the `main.js` script element has the `defer` attribute set, `main.js` is
+executed, the first `<p>` element contains "main.js executed", and the second
+`<p>` element contains "userscript.js executed".
+
+If the `main.js` script element does _not_ have the `defer attribute`,
+`main.js` is not executed, the first `<p>` element is empty, and the second
+`<p>` element contains "userscript.js executed".
 
 ## Chrome behaviour
 
-`main.js` is _not_ executed and no event listener is set.
+`main.js` is _not_ executed, the first `<p>` element is empty, and the second
+`<p>` element contains "userscript.js executed".
