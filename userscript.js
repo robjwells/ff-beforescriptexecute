@@ -7,7 +7,7 @@
 // @inject-into page
 // ==/UserScript==
 
-new MutationObserver(async (mutations, observer) => {
+new MutationObserver((mutations, observer) => {
   mutations.forEach(({ addedNodes }) => {
     addedNodes.forEach(node => {
       if (node.nodeType == 1 && node.tagName == "SCRIPT") {
