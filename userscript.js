@@ -1,5 +1,4 @@
 // ==UserScript==
-// ==UserScript==
 // @name        Localhost intercept script
 // @match       http://localhost*/
 // @version     1.0
