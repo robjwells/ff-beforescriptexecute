@@ -15,6 +15,9 @@ The `userscript.js` file attempts to prevent the execution of `main.js` by
 changing the `type` of the `script` element. It also registers a load listener to
 add text to a (different) `<p>` element.
 
+The observed behaviour is the same when using a userscript injector (eg Violentmonkey)
+or when including `userscript.js` in the HTML.
+
 ## Firefox behaviour
 
 If the `main.js` script element has the `defer` attribute set, `main.js` is

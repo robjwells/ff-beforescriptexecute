@@ -4,12 +4,15 @@
 <head>
   <title>Injection test</title>
   <meta charset="utf-8">
-  <script defer src="./main.js"></script>
+  <script src="./userscript.js"></script>
+  <script src="./main-nodefer.js"></script>
+  <script defer src="./main-defer.js"></script>
 </head>
 
 <body>
-    <p id="main-target"></p>
-    <p id="userscript-target"></p>
+    <p><b>userscript</b>? <span id="userscript-target"></span></p>
+    <p><b>main-nodefer</b>? <span id="nodefer-target"></span></p>
+    <p><b>main-defer</b>? <span id="defer-target"></span></p>
 </body>
 
 </html>

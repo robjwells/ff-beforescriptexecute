@@ -12,9 +12,9 @@ new MutationObserver((mutations, observer) => {
     addedNodes.forEach(node => {
       if (node.nodeType == 1 && node.tagName == "SCRIPT") {
         const src = node.src || '';
-        if (src.match("main\.js")) {
+        if (src.match(/main-(defer|nodefer)\.js/)) {
           node.type = "text/plain";
-          console.log("userscript.js executed");
+          console.log(`userscript.js executed for ${src}`);
           addEventListener("load", () => {
             document.querySelector("#userscript-target").textContent = "userscript.js executed";
           })
