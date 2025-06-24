@@ -4,6 +4,7 @@ Tested with:
 
 - Firefox 139
 - Chrome 137
+- Safari 17.6
 - Violentmonkey 2.31
 
 ## Setup
@@ -26,6 +27,6 @@ but the behaviour is the same when including that script in the HTML.
   and adds text to the page.
 - `main-nodefer.js` is _not_ executed.
 
-## Chrome behaviour
+## Chrome & Safari behaviour
 
 Neither `main-defer.js` nor `main-nodefer.js` are executed.
