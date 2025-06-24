@@ -8,27 +8,24 @@ Tested with:
 
 ## Setup
 
-The `index.html` file includes `main.js`. It registers a load listener to add
-text to a `<p>` element.
+The `index.html` file contains three scripts:
 
-The `userscript.js` file attempts to prevent the execution of `main.js` by
-changing the `type` of the `script` element. It also registers a load listener to
-add text to a (different) `<p>` element.
+- `userscript.js`, which attempts to prevent the loading of the other scripts by
+  changing the `type` of the `script` elements.
+- `main-defer.js`, which registers a load listener to add text to a `span` element,
+   with its corresponding `script` element marked `defer`.
+- `main-nodefer.js`, which registers a load listener to add text to a (different)
+  `span` element, with its corresponding `script` element _not_ deferred.
 
-The observed behaviour is the same when using a userscript injector (eg Violentmonkey)
-or when including `userscript.js` in the HTML.
+Initially this example relied on a userscript extension to inject `userscript.js`,
+but the behaviour is the same when including that script in the HTML.
 
 ## Firefox behaviour
 
-If the `main.js` script element has the `defer` attribute set, `main.js` is
-executed, the first `<p>` element contains "main.js executed", and the second
-`<p>` element contains "userscript.js executed".
-
-If the `main.js` script element does _not_ have the `defer` attribute,
-`main.js` is not executed, the first `<p>` element is empty, and the second
-`<p>` element contains "userscript.js executed".
+- `main-defer.js` (with the `defer` attribute on its `script` element) is executed,
+  and adds text to the page.
+- `main-nodefer.js` is _not_ executed.
 
 ## Chrome behaviour
 
-`main.js` is _not_ executed, the first `<p>` element is empty, and the second
-`<p>` element contains "userscript.js executed".
+Neither `main-defer.js` nor `main-nodefer.js` are executed.
